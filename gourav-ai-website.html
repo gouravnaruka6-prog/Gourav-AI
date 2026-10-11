@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Gourav AI — discover useful AI tools for writing, learning, images and productivity.">
+  <meta name="theme-color" content="#0b1020">
+  <title>Gourav AI — Your AI Tool Hub</title>
+  <style>
+    :root{--bg:#0b1020;--panel:#121a2e;--panel2:#17223b;--text:#f5f7ff;--muted:#aab6d3;--purple:#8b5cf6;--cyan:#67e8f9;--border:rgba(255,255,255,.1)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(ellipse at 15% 0%,rgba(124,58,237,.2),transparent 36%),radial-gradient(ellipse at 90% 20%,rgba(34,211,238,.1),transparent 28%),var(--bg);color:var(--text);min-height:100vh}
+    a{color:inherit;text-decoration:none}.wrap{width:min(1120px,92%);margin:auto}
+    header{display:flex;align-items:center;justify-content:space-between;padding:22px 0;border-bottom:1px solid var(--border)}
+    .brand{display:flex;align-items:center;gap:11px;font-weight:850;font-size:1.2rem;letter-spacing:-.5px}
+    .logo{display:grid;place-items:center;width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,#8b5cf6,#22d3ee);box-shadow:0 8px 28px #6d28d955;font-size:22px}
+    nav{display:flex;gap:22px;color:var(--muted);font-size:.94rem}nav a:hover{color:white}
+    .pill{border:1px solid #8b5cf6aa;color:#d8c9ff;border-radius:999px;padding:7px 12px;font-size:.78rem;font-weight:700}
+    .hero{padding:72px 0 42px;text-align:center}.eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);background:#ffffff08;border-radius:999px;padding:8px 13px;color:#d7cbff;font-size:.84rem}
+    h1{font-size:clamp(2.5rem,7vw,5rem);line-height:1.02;letter-spacing:-.06em;margin:22px auto 16px;max-width:850px}
+    .gradient{background:linear-gradient(90deg,#c4b5fd,#67e8f9);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero p{color:var(--muted);font-size:clamp(1rem,2.2vw,1.15rem);line-height:1.7;max-width:650px;margin:0 auto 26px}
+    .searchbox{display:flex;align-items:center;gap:10px;max-width:620px;margin:auto;background:#151d33;border:1px solid #ffffff1c;border-radius:16px;padding:8px 14px;box-shadow:0 18px 50px #0003}
+    .searchbox span{font-size:20px}.searchbox input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:white;font:inherit;padding:11px 0}.searchbox input::placeholder{color:#8794b5}
+    .searchbox button{border:0;border-radius:11px;background:var(--purple);color:white;font-weight:750;padding:11px 15px;cursor:pointer}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:28px 0 18px}.section-head h2{margin:0;font-size:1.5rem;letter-spacing:-.03em}.section-head p{margin:5px 0 0;color:var(--muted);font-size:.92rem}
+    .filters{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}.filter{background:#ffffff08;border:1px solid var(--border);color:#cbd5e1;padding:8px 13px;border-radius:999px;cursor:pointer;font:inherit;font-size:.86rem}.filter.active,.filter:hover{background:#8b5cf622;border-color:#8b5cf6;color:#e9ddff}
+    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    .card{background:linear-gradient(160deg,#17223b,#101729);border:1px solid var(--border);border-radius:20px;padding:20px;display:flex;flex-direction:column;min-height:220px;transition:transform .2s,border-color .2s}
+    .card:hover{transform:translateY(-4px);border-color:#8b5cf688}.card-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .tool-icon{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;font-size:24px;background:#8b5cf622;border:1px solid #8b5cf633}
+    .tag{font-size:.73rem;color:#b7c3df;background:#ffffff0b;border:1px solid var(--border);padding:5px 8px;border-radius:999px}
+    .card h3{margin:17px 0 7px;font-size:1.1rem}.card p{margin:0;color:var(--muted);line-height:1.55;font-size:.91rem;flex:1}
+    .card a{display:flex;align-items:center;justify-content:center;gap:7px;margin-top:18px;padding:11px 12px;border-radius:12px;background:#ffffff0b;border:1px solid var(--border);font-size:.9rem;font-weight:750}.card a:hover{background:#8b5cf622;border-color:#8b5cf6}
+    .empty{display:none;text-align:center;padding:36px;color:var(--muted);grid-column:1/-1}
+    .note{margin:34px 0 0;padding:18px;border-radius:16px;border:1px solid #67e8f933;background:#67e8f90a;color:#b9c8e6;font-size:.88rem;line-height:1.65}
+    footer{border-top:1px solid var(--border);margin-top:54px;padding:25px 0 34px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;color:#8794b5;font-size:.85rem}
+    @media(max-width:760px){nav{gap:12px}nav a:not(:last-child){display:none}.hero{padding-top:54px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.card{padding:16px}}
+    @media(max-width:500px){.grid{grid-template-columns:1fr}.section-head{align-items:start;flex-direction:column}.searchbox button{padding:10px 11px}.hero{padding-top:44px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="#" aria-label="Gourav AI home"><span class="logo">✦</span><span>Gourav <span class="gradient">AI</span></span></a>
+      <nav><a href="#tools">Explore tools</a><a href="#about">About</a><a href="#tools" class="pill">Explore free</a></nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <span class="eyebrow">✦ YOUR AI TOOL HUB</span>
+        <h1>Make more with <span class="gradient">AI.</span></h1>
+        <p>Discover helpful AI tools for writing, learning, creating images and making videos — all in one simple place.</p>
+        <form class="searchbox" id="searchForm" role="search">
+          <span aria-hidden="true">⌕</span>
+          <input id="searchInput" type="search" placeholder="Search AI tools..." aria-label="Search AI tools">
+          <button type="submit">Search</button>
+        </form>
+      </section>
+
+      <section id="tools">
+        <div class="section-head">
+          <div><h2>Explore AI tools</h2><p>Choose a category and find a tool for your next idea.</p></div>
+          <span class="tag" id="count">8 tools</span>
+        </div>
+        <div class="filters" aria-label="Filter tools">
+          <button class="filter active" data-filter="All">All tools</button>
+          <button class="filter" data-filter="Chat">AI Chat</button>
+          <button class="filter" data-filter="Writing">Writing</button>
+          <button class="filter" data-filter="Images">Images</button>
+          <button class="filter" data-filter="Video">Video</button>
+          <button class="filter" data-filter="Learning">Learning</button>
+        </div>
+
+        <div class="grid" id="toolGrid">
+          <article class="card" data-category="Chat" data-search="chatgpt chat questions assistant writing learning">
+            <div class="card-top"><div class="tool-icon">💬</div><span class="tag">AI Chat</span></div>
+            <h3>ChatGPT</h3><p>Brainstorm ideas, ask questions, draft scripts and learn new topics.</p>
+            <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">Open tool ↗</a>
+          </article>
+          <article class="card" data-category="Writing" data-search="grammarly grammar spelling writing editor">
+            <div class="card-top"><div class="tool-icon">✍️</div><span class="tag">Writing</span></div>
+            <h3>Grammarly</h3><p>Check grammar, spelling and clarity while writing.</p>
+            <a href="https://www.grammarly.com/" target="_blank" rel="noopener noreferrer">Open tool ↗</a>
+          </article>
+          <article class="card" data-category="Images" data-search="adobe firefly image art design generative">
+            <div class="card-top"><div class="tool-icon">🎨</div><span class="tag">Images</span></div>
+            <h3>Adobe Firefly</h3><p>Explore generative AI features for images and creative designs.</p>
+            <a href="https://firefly.adobe.com/" target="_blank" rel="noopener noreferrer">Open tool ↗</a>
+          </article>
+          <article class="card" data-category="Video" data-search="runway video generation editing ai video">
+            <div class="card-top"><div class="tool-icon">🎬</div><span class="tag">Video</span></div>
+            <h3>Runway</h3><p>Explore AI-assisted video creation and editing tools.</p>
+            <a href="https://runwayml.com/" target="_blank" rel="noopener noreferrer">Open tool ↗</a>
+          </article>
+          <article class="card" data-category="Learning" data-search="khan academy khanmigo education learning tutor">
+            <div class="card-top"><div class="tool-icon">📚</div><span class="tag">Learning</span></div>
+            <h3>Khan Academy</h3><p>Study school subjects and explore learning resources.</p>
+            <a href="https://www.khanacademy.org/" target="_blank" rel="noopener noreferrer">Open tool ↗</a>
+          </article>
+          <article class="card" data-category="Chat" data-search="google gemini assistant questions research">
+            <div class="card-top"><div class="tool-icon">✨</div><span class="tag">AI Chat</span></div>
+            <h3>Google Gemini</h3><p>Get help with ideas, questions and everyday tasks.</p>
+            <a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer">Open tool ↗</a>
+          </article>
+          <article class="card" data-category="Writing" data-search="notion ai notes summaries writing productivity">
+            <div class="card-top"><div class="tool-icon">📝</div><span class="tag">Writing</span></div>
+            <h3>Notion</h3><p>Organize notes, plan projects and explore AI writing features.</p>
+            <a href="https://www.notion.so/" target="_blank" rel="noopener noreferrer">Open tool ↗</a>
+          </article>
+          <article class="card" data-category="Images" data-search="canva design image presentations social media">
+            <div class="card-top"><div class="tool-icon">🪄</div><span class="tag">Images</span></div>
+            <h3>Canva</h3><p>Create posters, thumbnails, presentations and social designs.</p>
+            <a href="https://www.canva.com/" target="_blank" rel="noopener noreferrer">Open tool ↗</a>
+          </article>
+          <div class="empty" id="empty">No tools found. Try another search. 🔎</div>
+        </div>
+      </section>
+
+      <section id="about" class="note"><strong>About Gourav AI:</strong> This is an independent directory that helps you discover AI services. Tool names belong to their respective owners. Features, free plans and sign-in requirements can change, so check each provider's own website. Never share passwords or private information with unfamiliar tools.</section>
+    </main>
+    <footer><span>© <span id="year"></span> Gourav AI</span><span>Made to help you discover useful AI ✦</span></footer>
+  </div>
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const cards = [...document.querySelectorAll('.card')];
+    const filters = [...document.querySelectorAll('.filter')];
+    const empty = document.getElementById('empty');
+    const count = document.getElementById('count');
+    let activeFilter = 'All';
+    function updateTools() {
+      const query = searchInput.value.trim().toLowerCase();
+      let visible = 0;
+      cards.forEach(card => {
+        const matchesText = (card.innerText + ' ' + card.dataset.search).toLowerCase().includes(query);
+        const matchesCategory = activeFilter === 'All' || card.dataset.category === activeFilter;
+        const show = matchesText && matchesCategory;
+        card.style.display = show ? 'flex' : 'none';
+        if (show) visible++;
+      });
+      empty.style.display = visible ? 'none' : 'block';
+      count.textContent = `${visible} tool${visible === 1 ? '' : 's'}`;
+    }
+    filters.forEach(button => button.addEventListener('click', () => {
+      activeFilter = button.dataset.filter;
+      filters.forEach(item => item.classList.toggle('active', item === button));
+      updateTools();
+    }));
+    searchInput.addEventListener('input', updateTools);
+    document.getElementById('searchForm').addEventListener('submit', event => {
+      event.preventDefault();
+      updateTools();
+      document.getElementById('tools').scrollIntoView({behavior:'smooth'});
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
